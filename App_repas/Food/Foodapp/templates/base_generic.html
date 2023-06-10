@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page d'accueil</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/style.css' %}"/>
+
+</head>
+<body>
+	<div class="header">
+		<div class="logo">GPS<br>Gestionnaire de prevision de sante</div>
+		<div> nombre de visiteurs: {% block contents %} {{visite}}</div>
+		<div class="nav">
+			<a href="{% url 'index' %}">Accueil</a>
+			<a href="#">Profil</a>
+			<a href="{% url 'connexion' %}">Déconnexion</a>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="aside">
+			<div class="profile">
+          {% load static %}
+				<img src="{% static '/core/images/profil.jfif' %}" alt="profil par defaut">" 
+				
+                <h2>{{ personne.nom }} </h2>
+                    {% endblock %}
+				<p>Administrateur</p>
+			</div>
+
+			<h3>Menu</h3>
+			<ul>
+				<li><a href="{% url 'prerepas'%}">gestion de repas</a></li>
+				<li><a href="{% url 'premaladie'%}">Gestion maladies</a></li>
+				<li><a href="{% url 'repasrec' %}">Gestion_consomation</a></li>
+				<li><a href="{% url 'listrepas' %}">Mes Aliment</a></li>
+			</ul>
+		</div>
+        {% block content %} 
+        
+        
+        {% endblock %}
+	</div>
+</body>
+</html>

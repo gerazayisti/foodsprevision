@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+<div class="main">
+
+<h1>Ajouter une consommation</h1>
+
+<form method="POST">
+  {% csrf_token %}
+
+  <h2>Personne</h2>
+  {{ personne_form.as_p }}
+
+  <h2>Consommation</h2>
+  {{ consommation_form.as_p }}
+
+  <h2>Jour</h2>
+  {{ jour_form.as_p }}
+
+  <h2>Aliment</h2>
+  {{ aliment_form.as_p }}
+
+  <h2>Problème</h2>
+  {{ probleme_form.as_p }}
+
+  <button type="submit">Ajouter les données</button>
+</form>
+{% endblock%}

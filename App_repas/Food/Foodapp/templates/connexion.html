@@ -1,0 +1,19 @@
+{% extends "base_generic copy.html" %}
+{% block content %}
+        <div class="main">
+			<h1>Inscription</h1>
+			{% load static %}
+			<h1>Se connecter</h1>
+            <img src="{% static 'core/images/gerazayis.jpeg' %}" alt="Image d'inscription" class="ico">
+			<form action="{% url 'index' %}">
+				<label for="username">Nom d'utilisateur:</label>
+				<input type="text" id="username" name="username">
+
+				<label for="password">Mot de passe:</label>
+				<input type="password" id="password" name="password">
+
+				<input type="submit" value="Se connecter">
+			</form>
+		</div>
+		</div>
+{% endblock content%}

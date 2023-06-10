@@ -1,0 +1,28 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="main">
+    <h1>Récapitulatif des maladies</h1>
+<h1>{{ personne.nom }} - maladies par repas</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Jour</th>
+      <th>Aliment</th>
+      <th>Maladies</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for consommation in consommations %}
+    <tr>
+      <td>{{ consommation.id_jour }}</td>
+      <td>{{ consommation.id_aliments.nom }}</td>
+      <td>{{ consommation.id_probleme.nom }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+			<em><p>Vous pouvez ajouter des probleme de sante en cliquant sur le bouton "Ajouter".</p></em></br>
+			<a href="{% url 'ajouter' %}" class="btn btn-primary">Ajouter</a>
+</div>
+{% endblock %}

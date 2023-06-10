@@ -1,0 +1,26 @@
+{% extends "base_generic copy 2.html" %}
+{% block content %}
+
+		<div class="main">
+			<h1>Inscription</h1>
+           {% load static%}
+            <img src="{% static 'core/images/OIP.jfif' %}" alt="Image d'inscription" class="logo">
+
+			<form action="{% url 'index' %}">
+                {% csrf_token %}
+				<label for="username">Nom d'utilisateur:</label>
+				<input type="text" id="username" name="username">
+
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email">
+
+				<label for="password">Mot de passe:</label>
+				<input type="password" id="password" name="password">
+
+				<label for="confirm-password">Confirmez le mot de passe:</label>
+				<input type="password" id="confirm-password" name="confirm-password">
+
+				<input type="submit" value="S'inscrire">
+			</form>
+		</div>
+{% endblock content%}

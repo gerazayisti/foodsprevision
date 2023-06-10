@@ -1,0 +1,28 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="main">
+    <h1>Récapitulatif des repas</h1>
+<h1>{{ personne.nom }} - Consommations</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Jour</th>
+      <th>Aliment</th>
+      <th>Quantité</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for consommation in consommations %}
+    <tr>
+      <td>{{ consommation.id_jour }}</td>
+      <td>{{ consommation.id_aliments.nom }}</td>
+      <td>{{ consommation.quantite }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+			<em><p>Vous pouvez ajouter des repas consommés en cliquant sur le bouton "Ajouter un repas".</p></em>
+			<a href="{% url 'ajouter' %}" class="btn btn-primary">Ajouter</a>
+</div>
+{% endblock %}

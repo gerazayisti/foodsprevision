@@ -1,0 +1,28 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="main">
+    <h1>prevision hebdomadaire de consommation</h1>
+<h1>{{ personne.nom }} - Consommations</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Jour</th>
+      <th>Aliment</th>
+      <th>Quantité</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for repas_consommes in repas_consommes %}
+    <tr>
+      <td>{{ repas_consommes.jour }}</td>
+      <td>{{ repas_consommes.repas.repas__nom }}</td>
+      <td>{{ repas_consommes.repas.quantite }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+			<em><p>Vous pouvez ajouter des repas consommés en cliquant sur le bouton "Ajouter un repas".</p></em><br>
+			<a href="{% url 'ajouter' %}" class="btn btn-primary">Ajouter</a>
+</div>
+{% endblock %}

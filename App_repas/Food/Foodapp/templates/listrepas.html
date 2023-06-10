@@ -1,0 +1,30 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="main">
+    <h1>Mes Repas</h1>
+<h1>{{ personne.nom }} - liste des repas</h1>
+<table>
+  <thead>
+    <tr>
+      <th>nom</th>
+      <th>calorie</th>
+      <th>probleme</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for aliment in aliment %}
+    <tr>
+      <td>{{ aliment.nom }}</td>
+      <td>{{ aliment.calorie}}</td>
+      <td>{{ consommation.id_probleme.nom }}</td>
+      <td>{{ aliment.type_Aliment}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+			<em><p>Vous pouvez ajouter des Aliments en cliquant sur le bouton "Ajouter un repas".</p></em><br>
+			<a href="{% url 'ajouter' %}" class="btn btn-primary">Ajouter</a>
+</div>
+{% endblock %}
